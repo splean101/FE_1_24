@@ -1,6 +1,6 @@
 //1.
 
-/*class User {
+class User {
   #name;
   constructor(name, login, age) {
     this.#name = name;
@@ -45,10 +45,10 @@ user2.getName(true);
 user2.getName(false);
 
 //3.
-user1.changeName('Bill', '123');*/
+user1.changeName('Bill', '123');
 
 //4.
-/*class User {
+class User {
   constructor(name, login, age) {
     this.name = name;
     this.login = login;
@@ -69,7 +69,7 @@ class Admin extends User {
 
 const user = new User('Mike', 'mike101', 33);
 const admin = new Admin('Bob', 'lad', 56);
-admin.getUserName(user);*/
+admin.getUserName(user);
 
 //5.
 
