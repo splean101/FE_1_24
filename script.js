@@ -48,7 +48,7 @@ user2.getName(false);
 user1.changeName('Bill', '123');*/
 
 //4.
-class User {
+/*class User {
   constructor(name, login, age) {
     this.name = name;
     this.login = login;
@@ -69,4 +69,32 @@ class Admin extends User {
 
 const user = new User('Mike', 'mike101', 33);
 const admin = new Admin('Bob', 'lad', 56);
-admin.getUserName(user);
+admin.getUserName(user);*/
+
+//5.
+
+class User {
+  #phone;
+  constructor(name, phone) {
+    this.name = name;
+    this.#phone = phone;
+  }
+  getPhone(isAdmin) {
+    if (isAdmin) {
+      console.log(this.#phone);
+      return;
+    }
+    let hiddenPhone = this.#phone.split('');
+    for (let i = 4; i < hiddenPhone.length - 3; i++) {
+      hiddenPhone[i] = '*';
+    }
+    console.log(hiddenPhone.join(''));
+  }
+}
+
+const user1 = new User('Mike', '067-888-88-99');
+const user2 = new User('Tom', '099-888-88-99');
+user1.getPhone(false);
+user2.getPhone(false);
+user1.getPhone(true);
+user2.getPhone(true);
