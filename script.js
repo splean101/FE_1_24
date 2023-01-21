@@ -1,6 +1,6 @@
 //1.
 
-class User {
+/*class User {
   #name;
   constructor(name, login, age) {
     this.#name = name;
@@ -8,15 +8,7 @@ class User {
     this.age = age;
   }
   //2.
-  getName(isAdmin) {
-    if (!isAdmin) {
-      console.log('Permission denied');
-    } else if (!this.#name) {
-      console.log('login ', this.login);
-    } else {
-      console.log('name ', this.#name);
-    }
-  }
+
   //3.
   changeName(newName, pass) {
     if (pass === '123') {
@@ -26,6 +18,15 @@ class User {
       return;
     }
     console.log('Permission denied');
+  }
+  getName(isAdmin) {
+    if (!isAdmin) {
+      console.log('Permission denied');
+    } else if (!this.#name) {
+      console.log('login ', this.login);
+    } else {
+      console.log('name ', this.#name);
+    }
   }
 }
 
@@ -44,6 +45,28 @@ user2.getName(true);
 user2.getName(false);
 
 //3.
-user1.changeName('Bill', '123');
+user1.changeName('Bill', '123');*/
 
 //4.
+class User {
+  constructor(name, login, age) {
+    this.name = name;
+    this.login = login;
+    this.age = age;
+  }
+}
+
+class Admin extends User {
+  #isAdmin;
+  constructor(name, login, age, isAdmin) {
+    super(name, login, age);
+    this.#isAdmin = true;
+  }
+  getUserName(user) {
+    console.log(user.name);
+  }
+}
+
+const user = new User('Mike', 'mike101', 33);
+const admin = new Admin('Bob', 'lad', 56);
+admin.getUserName(user);
