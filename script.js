@@ -40,9 +40,9 @@ console.log(user2.login);
 console.log(user2.age);
 
 2.
-user1.getName(true);
-user2.getName(true);
-user2.getName(false);
+console.log(user1.getName(true)); 
+console.log(user2.getName(true)); 
+console.log(user2.getName(false)); 
 
 //3.
 user1.changeName('Bill', '123');
@@ -56,7 +56,6 @@ class Admin extends User {
     this.#isAdmin = true;
   }
   getUserName(user) {
-    console.log(user);
     return user.getName(this.#isAdmin);
   }
 }
@@ -68,7 +67,7 @@ console.log(admin.getUserName(admin));
 
 //5.
 
-class User {
+class Userr {
   #phone;
   constructor(name, phone) {
     this.name = name;
@@ -76,20 +75,19 @@ class User {
   }
   getPhone(isAdmin) {
     if (isAdmin) {
-      console.log(this.#phone);
-      return;
+      return this.#phone;
     }
     let hiddenPhone = this.#phone.split('');
     for (let i = 4; i < hiddenPhone.length - 3; i++) {
       hiddenPhone[i] = '*';
     }
-    console.log(hiddenPhone.join(''));
+    return hiddenPhone.join('');
   }
 }
 
-const user1 = new User('Mike', '067-888-88-99');
-const user2 = new User('Tom', '099-888-88-99');
-user1.getPhone(false);
-user2.getPhone(false);
-user1.getPhone(true);
-user2.getPhone(true);
+const user11 = new Userr('Mike', '067-888-88-99');
+const user22 = new Userr('Tom', '099-888-88-99');
+console.log(user11.getPhone(false));
+console.log(user22.getPhone(false));
+console.log(user11.getPhone(true));
+console.log(user22.getPhone(true));
